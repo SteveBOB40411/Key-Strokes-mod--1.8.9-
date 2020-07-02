@@ -2,6 +2,9 @@ package com.junqi.mykeystrokesmod;
 
 import java.awt.Color;
 
+import org.lwjgl.input.Keyboard;
+
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.settings.KeyBinding;
 
@@ -15,8 +18,8 @@ public class Key {
     public static final int KEY_DOWN_FRGRND = Color.BLACK.getRGB();
     public static final int KEY_UP_FRGRND = Color.WHITE.getRGB();
 
-    private final int x, y, width, height;
-    private final KeyBinding binding;
+    private int x, y, width, height;
+    private KeyBinding binding;
 
     public Key(int x, int y, int width, int height, KeyBinding binding) {
         this.x = x;
@@ -28,5 +31,7 @@ public class Key {
 
     public void render(Gui gui) {
         Gui.drawRect(x, y, x + width, y + height, binding.isKeyDown() ? KEY_DOWN_BKGRND : KEY_UP_BKGRND);
+        gui.drawCenteredString(Minecraft.getMinecraft().fontRendererObj, Keyboard.getKeyName(binding.getKeyCode()),
+                x + width / 2, y + height / 2, binding.isKeyDown() ? KEY_DOWN_FRGRND : KEY_UP_FRGRND);
     }
 }

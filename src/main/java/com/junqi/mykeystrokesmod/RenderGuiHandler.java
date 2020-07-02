@@ -1,25 +1,29 @@
-package com.junqi.mykeystrokesmod.gui;
+package com.junqi.mykeystrokesmod;
 
+import net.minecraft.client.gui.Gui;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 
 public class RenderGuiHandler {
 
-    private KeystrokesGui keystrokes;
+    private Gui gui;
+    private KeyGroup kg;
 
     public RenderGuiHandler() {
-        keystrokes = new KeystrokesGui();
+        gui = new Gui();
+        kg = new KeyGroup(10, 10);
     }
 
     @SubscribeEvent
     public void onRenderGui(RenderGameOverlayEvent.Post event) {
         if(event.type != ElementType.EXPERIENCE) {
-            // if the previously rendered element wasn't the experience bar, vanilla rendering has failed
+            // only draw after the expeience bar which is the last vanilla gui element
             return;
         }
 
-        keystrokes.render();
+        for(Key k : kg.get()) {
+            k.render(gui);
+        }
     }
-    
 }
