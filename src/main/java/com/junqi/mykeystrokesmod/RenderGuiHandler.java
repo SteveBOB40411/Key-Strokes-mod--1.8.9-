@@ -8,16 +8,26 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 
+/**
+ * Handles the rendering of the keystrokes GUI.
+ */
 public class RenderGuiHandler {
 
     private Gui gui;
     private KeyGroup kg;
 
+    /**
+     * Creates a new handler to display the keystrokes.
+     */
     public RenderGuiHandler() {
         gui = new Gui();
         kg = new KeyGroup(10, 10);
     }
 
+    /**
+     * Renders the keytrokes.
+     * @param event the event prior to rendering this
+     */
     @SubscribeEvent
     public void onRenderGui(RenderGameOverlayEvent.Post event) {
         if (event.type != ElementType.EXPERIENCE) {

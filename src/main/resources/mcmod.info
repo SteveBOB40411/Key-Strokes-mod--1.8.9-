@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "mykeystrokesmod",
+  "name": "My Keystrokes Mod",
+  "description": "A basic keystrokes mod developed as part of an application for BLC.",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "",
+  "url": "https://github.com/junqiwu02/my-keystrokes-mod",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["Junqi"],
+  "credits": "The Forge and FML guys",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
