@@ -22,7 +22,7 @@ public class RenderGuiHandler {
             return;
         }
 
-        for(Key k : kg.get()) {
+        for(Key k : kg.getKeys()) {
             k.render(gui);
         }
     }

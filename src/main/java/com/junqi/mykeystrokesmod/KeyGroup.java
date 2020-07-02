@@ -2,25 +2,24 @@ package com.junqi.mykeystrokesmod;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.GameSettings;
-import net.minecraft.client.settings.KeyBinding;
 
 public class KeyGroup {
 
-    public static final int S_KEY_WIDTH = 30;
-    public static final int S_KEY_HEIGHT = 30;
-    public static final int M_KEY_WIDTH = 45;
-    public static final int M_KEY_HEIGHT = 30;
-    public static final int BAR_KEY_WIDTH = 100;
-    public static final int BAR_KEY_HEIGHT = 30;
-    public static final int KEY_SPACING = 5;
+    public static final int S_WIDTH = 30;
+    public static final int S_HEIGHT = 30;
+    public static final int M_WIDTH = 45;
+    public static final int M_HEIGHT = 25;
+    public static final int BAR_WIDTH = 90;
+    public static final int BAR_HEIGHT = 25;
+    public static final int SPACING = 1;
 
     private Key forward;
-    private Key backward;
+    private Key back;
     private Key left;
     private Key right;
 
-    private Key lmb;
-    private Key rmb;
+    private Key attack;
+    private Key use;
 
     private Key jump;
 
@@ -28,12 +27,20 @@ public class KeyGroup {
 
     public KeyGroup(int x, int y) {
         GameSettings settings = Minecraft.getMinecraft().gameSettings;
-        forward = new Key(x + S_KEY_WIDTH + KEY_SPACING, y, S_KEY_WIDTH, S_KEY_HEIGHT, settings.keyBindForward);
+        forward = new Key(x + S_WIDTH, y, S_WIDTH, S_HEIGHT, SPACING, settings.keyBindForward);
+        back = new Key(x + S_WIDTH, y + S_HEIGHT, S_WIDTH, S_HEIGHT, SPACING, settings.keyBindBack);
+        left = new Key(x, y + S_HEIGHT, S_WIDTH, S_HEIGHT, SPACING, settings.keyBindLeft);
+        right = new Key(x + 2 * S_WIDTH, y + S_HEIGHT, S_WIDTH, S_HEIGHT, SPACING, settings.keyBindRight);
 
-        keys = new Key[]{forward};
+        attack = new Key(x, y + 2 * S_HEIGHT, M_WIDTH, M_HEIGHT, SPACING, settings.keyBindAttack);
+        use = new Key(x + M_WIDTH, y + 2 * S_HEIGHT, M_WIDTH, M_HEIGHT, SPACING, settings.keyBindUseItem);
+
+        jump = new Key(x, y + 2 * S_HEIGHT + M_HEIGHT, BAR_WIDTH, BAR_HEIGHT, SPACING, settings.keyBindJump);
+
+        keys = new Key[]{forward, back, left, right, attack, use, jump};
     }
 
-    public Key[] get() {
+    public Key[] getKeys() {
         return keys;
     }
     
