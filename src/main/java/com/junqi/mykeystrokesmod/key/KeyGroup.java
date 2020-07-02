@@ -1,4 +1,4 @@
-package com.junqi.mykeystrokesmod;
+package com.junqi.mykeystrokesmod.key;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.GameSettings;
@@ -8,9 +8,9 @@ public class KeyGroup {
     public static final int S_WIDTH = 30;
     public static final int S_HEIGHT = 30;
     public static final int M_WIDTH = 45;
-    public static final int M_HEIGHT = 25;
+    public static final int M_HEIGHT = 30;
     public static final int BAR_WIDTH = 90;
-    public static final int BAR_HEIGHT = 25;
+    public static final int BAR_HEIGHT = 20;
     public static final int SPACING = 1;
 
     private Key forward;
@@ -32,8 +32,8 @@ public class KeyGroup {
         left = new Key(x, y + S_HEIGHT, S_WIDTH, S_HEIGHT, SPACING, settings.keyBindLeft);
         right = new Key(x + 2 * S_WIDTH, y + S_HEIGHT, S_WIDTH, S_HEIGHT, SPACING, settings.keyBindRight);
 
-        attack = new Key(x, y + 2 * S_HEIGHT, M_WIDTH, M_HEIGHT, SPACING, settings.keyBindAttack);
-        use = new Key(x + M_WIDTH, y + 2 * S_HEIGHT, M_WIDTH, M_HEIGHT, SPACING, settings.keyBindUseItem);
+        attack = new CpsKey(x, y + 2 * S_HEIGHT, M_WIDTH, M_HEIGHT, SPACING, settings.keyBindAttack);
+        use = new CpsKey(x + M_WIDTH, y + 2 * S_HEIGHT, M_WIDTH, M_HEIGHT, SPACING, settings.keyBindUseItem);
 
         jump = new Key(x, y + 2 * S_HEIGHT + M_HEIGHT, BAR_WIDTH, BAR_HEIGHT, SPACING, settings.keyBindJump);
 

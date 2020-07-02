@@ -1,4 +1,4 @@
-package com.junqi.mykeystrokesmod;
+package com.junqi.mykeystrokesmod.key;
 
 import java.awt.Color;
 
@@ -18,8 +18,8 @@ public class Key {
     public static final int KEY_DOWN_FRGRND = Color.GRAY.getRGB();
     public static final int KEY_UP_FRGRND = Color.WHITE.getRGB();
 
-    private int x, y, width, height, spacing;
-    private KeyBinding binding;
+    protected int x, y, width, height, spacing;
+    protected KeyBinding binding;
 
     public Key(int x, int y, int width, int height, int spacing, KeyBinding binding) {
         this.x = x;
@@ -37,7 +37,7 @@ public class Key {
                 x + width / 2, y + height / 2, binding.isKeyDown() ? KEY_DOWN_FRGRND : KEY_UP_FRGRND);
     }
 
-    private String getKeyName() {
+    protected String getKeyName() {
         int code = binding.getKeyCode();
         if(code < 0) {
             switch(code) {
