@@ -21,8 +21,8 @@ plugins {
 }
 */
 version = "1.0"
-group= "com.junqi.modid" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "modid"
+group= "com.junqi.mykeystrokesmod" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "mykeystrokesmod"
 
 minecraft {
     version = "1.8.9-11.15.1.1722"
